@@ -14,9 +14,9 @@ namespace Week4
             reversedGuidCollection = new Dictionary<Object, List<Guid>>();
         }
 
-        public TObject Add<TObject>(Type objectType) where TObject : new()
+        public TObject Add<TObject>() where TObject : new()
         { 
-            var newObject = (TObject)Activator.CreateInstance(objectType);
+            var newObject = (TObject)Activator.CreateInstance(typeof(TObject));
             Guid newGuid = Guid.NewGuid();
 
             guidCollection.Add(newGuid, newObject);

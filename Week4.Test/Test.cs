@@ -33,11 +33,11 @@ namespace Week4.Test
         {
             IdCollection newIdCollection = new IdCollection();
 
-            newIdCollection.Add<Int32>(typeof(Int32));
-            newIdCollection.Add<Int32>(typeof(Int32));
-            newIdCollection.Add<Int32>(typeof(Int32));
-            newIdCollection.Add<Double>(typeof(Double));
-            newIdCollection.Add<Double>(typeof(Double));
+            newIdCollection.Add<Int32>();
+            newIdCollection.Add<Int32>();
+            newIdCollection.Add<Int32>();
+            newIdCollection.Add<Double>();
+            newIdCollection.Add<Double>();
 
             return newIdCollection;
         }
