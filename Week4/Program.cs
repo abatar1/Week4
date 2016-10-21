@@ -7,6 +7,7 @@
             var processor = ProcessorBuilder.CreateEngine<MyEngine>()
                                             .For<MyEntity>()
                                             .With<MyLogger>();
+                                            
         }
     }
 }

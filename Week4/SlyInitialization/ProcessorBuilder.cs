@@ -12,15 +12,15 @@ namespace Week4
 
     public static class MyEngineExtension
     {
-        public static T For<T>(this MyEngine a)
+        public static MyLogger For<T>(this MyEngine a)
         {
             throw new NotImplementedException();
         }
     }
 
-    public static class MyLoggerExtension
+    public static class SomeExtension
     {
-        public static Processor<T, T, T> With<T>(this MyEntity a)
+        public static Processor<T, T, T> With<T>(this T a)
         {
             throw new NotImplementedException();
         }
