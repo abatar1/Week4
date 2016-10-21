@@ -4,7 +4,7 @@ namespace Week4
 {
     public static class ProcessorBuilder
     {
-        public static TEngine CreateEngine<TEngine>()
+        public static T CreateEngine<T>()
         {
             throw new NotImplementedException();
         }
@@ -12,7 +12,7 @@ namespace Week4
 
     public static class MyEngineExtension
     {
-        public static TEntity For<TEntity>(this MyEngine a)
+        public static T For<T>(this MyEngine a)
         {
             throw new NotImplementedException();
         }
@@ -20,10 +20,9 @@ namespace Week4
 
     public static class MyLoggerExtension
     {
-        public static Processor<MyEngine, MyEntity, TLogger> With<TLogger>(this MyEntity a)
+        public static Processor<T, T, T> With<T>(this MyEntity a)
         {
             throw new NotImplementedException();
         }
-
     }
 }

@@ -20,42 +20,33 @@ namespace Week4
             Guid newGuid = Guid.NewGuid();
 
             guidCollection.Add(newGuid, newObject);
-            if (reversedGuidCollection.ContainsKey(newObject))
-                reversedGuidCollection[newObject].Add(newGuid);
-            else
-                reversedGuidCollection.Add(newObject, new List<Guid>() { newGuid });
+            if (!reversedGuidCollection.ContainsKey(newObject))
+                reversedGuidCollection.Add(newObject, new List<Guid>() { } );
+            reversedGuidCollection[newObject].Add(newGuid);
 
             return newObject;
         }
 
         public Dictionary<Guid, TObject> GetGuids<TObject>(TObject obj)
         {
-            try
-            {
-                var guidListByType = reversedGuidCollection[obj];
-                var resultDictionary = new Dictionary<Guid, TObject>();
+            var resultDictionary = new Dictionary<Guid, TObject>();
+            List<Guid> guidListByType;
+            if (!reversedGuidCollection.TryGetValue(obj, out guidListByType))
+                return new Dictionary<Guid, TObject>();          
 
-                foreach (var guid in guidListByType)
-                    resultDictionary.Add(guid, obj);
+            foreach (var guid in guidListByType)
+                resultDictionary.Add(guid, obj);
 
-                return resultDictionary;
-            }
-            catch (Exception ex)
-            {
-                return new Dictionary<Guid, TObject>();
-            }            
+            return resultDictionary;          
         }
 
         public TObject GetObject<TObject>(Guid guid)
         {
-            try
-            {
-                return (TObject)guidCollection[guid];
-            }
-            catch (Exception ex)
-            {
+            object obj;
+            if (!guidCollection.TryGetValue(guid, out obj))
                 return default(TObject);
-            }
+            else
+                return (TObject)obj;
         }
     }
 }
